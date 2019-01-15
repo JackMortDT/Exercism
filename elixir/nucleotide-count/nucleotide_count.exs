@@ -20,9 +20,12 @@ defmodule NucleotideCount do
   defp count_letters( [], _nucleotide, number), do: number
   defp count_letters( strand, nucleotide, number) do
     [ comparate_letter | rest ] = strand
-    number = if (comparate_letter == nucleotide) do number + 1 else number end
+    number = get_number( nucleotide, comparate_letter, number )
     count_letters( rest, nucleotide, number )
   end
+
+  defp get_number(nucleotide, comparate_letter, number) when nucleotide == comparate_letter, do: number + 1
+  defp get_number(_nucleotide, _comparate_letter, number), do: number
 
   @doc """
   Returns a summary of counts by nucleotide.
