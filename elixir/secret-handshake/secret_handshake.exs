@@ -15,5 +15,7 @@ defmodule SecretHandshake do
   """
   @spec commands(code :: integer) :: list(String.t())
   def commands(code) do
+    codes = %{1 => "wink", 2 => "double blink", 4 => "close your eyes", 8 => "jump"}
+    [codes[code]]
   end
 end

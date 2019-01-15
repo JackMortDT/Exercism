@@ -9,22 +9,18 @@ defmodule SecretHandshakeTest do
   use ExUnit.Case
 
   describe "Create a handshake for a number" do
-    # @tag :pending
     test "wink for 1" do
       assert SecretHandshake.commands(1) == ["wink"]
     end
 
-    @tag :pending
     test "double blink for 10" do
       assert SecretHandshake.commands(2) == ["double blink"]
     end
 
-    @tag :pending
     test "close your eyes for 100" do
       assert SecretHandshake.commands(4) == ["close your eyes"]
     end
 
-    @tag :pending
     test "jump for 1000" do
       assert SecretHandshake.commands(8) == ["jump"]
     end
