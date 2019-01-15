@@ -27,8 +27,12 @@ defmodule RotationalCipher do
   defp get_minus_letter( result_letter ) when result_letter > 122, do: result_letter - 26
   defp get_minus_letter( result_letter ), do: result_letter
 
-  defp get_letter( letter, shift ) when letter > 64 and letter < 91, do: get_mayus_letter( letter + shift )
-  defp get_letter( letter, shift ) when letter > 96 and letter < 123, do: get_minus_letter( letter + shift )
-  defp get_letter( letter, _shift ), do: letter
+  defp get_letter( letter, shift ) do
+    cond do
+      letter > 64 && letter < 91 -> get_mayus_letter letter + shift
+      letter > 96 && letter < 123 -> get_minus_letter letter + shift
+      true -> letter
+    end
+  end
 
 end
